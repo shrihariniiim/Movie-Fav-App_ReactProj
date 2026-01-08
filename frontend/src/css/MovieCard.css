@@ -1,0 +1,81 @@
+.movie-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+/* hover effect */
+.movie-card:hover {
+  transform: translateY(-5px);
+}
+
+/* poster */
+.movie-poster {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* overlay */
+.movie-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.8)
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* desktop hover + mobile tap */
+.movie-card:hover .movie-overlay,
+.movie-card:focus-within .movie-overlay {
+  opacity: 1;
+}
+
+/* favorite button */
+.favorite-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 36px;
+  height: 36px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.favorite-btn.active {
+  color: red;
+  transform: scale(1.2);
+}
+
+/* info */
+.movie-info {
+  padding: 0.75rem;
+}
+
+.movie-info h3 {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.movie-info p {
+  font-size: 0.8rem;
+  color: #999;
+}
